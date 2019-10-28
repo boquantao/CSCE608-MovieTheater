@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<style>
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid green;
+  padding: 10px;
+}
+</style>
+<div class='center'>
+  <h1>Actors</h1>
+
+  <table class="table table-hover", style="text-align:center; padding-left: 10px">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @actors.each do |actor| %>
+        <tr>
+          <td><%= actor.name %></td>
+          <td><%= actor.age %></td>
+          <td><%= link_to 'Edit', edit_actor_path(actor) %></td>
+          <td><%= link_to 'Destroy', actor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <%= link_to 'New Actor', new_actor_path %>
+</div>

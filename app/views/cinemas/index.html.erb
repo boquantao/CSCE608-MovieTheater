@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<style>
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid green;
+  padding: 10px;
+}
+</style>
+
+<div class='center'>
+  <h1>Cinemas</h1>
+  <table class="table table-hover", style="text-align:center; padding-left: 50px">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Tel</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @cinemas.each do |cinema| %>
+        <tr>
+          <td><%= link_to cinema.name, employees_url(cinema_id: cinema.id) %></td>
+          <td><%= cinema.address %></td>
+          <td><%= cinema.tel %></td>
+          <td><%= link_to 'Schedule', shows_url(cinema_id: cinema.id) %></td>
+          <td><%= link_to 'Edit', edit_cinema_path(cinema) %></td>
+          <td><%= link_to 'Destroy', cinema, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  
+  <%= link_to 'New Cinema', new_cinema_path %>
+  <%= will_paginate(@cinemas) %>
+</div>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<style>
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid green;
+  padding: 10px;
+}
+</style>
+
+<div class='center'>
+  <p>
+    <strong>Name:</strong>
+    <%= @cinema.name %>
+  </p>
+  
+  <p>
+    <strong>Address:</strong>
+    <%= @cinema.address %>
+  </p>
+  
+  <p>
+    <strong>Tel:</strong>
+    <%= @cinema.tel %>
+  </p>
+  
+  <%= link_to 'Edit', edit_cinema_path(@cinema) %> |
+  <%= link_to 'Back', cinemas_path %>
+</div>

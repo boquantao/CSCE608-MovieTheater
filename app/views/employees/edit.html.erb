@@ -1,0 +1,15 @@
+<h1>Editing Employee</h1>
+<style>
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+</style>
+<div class = 'center'>
+    <%= render 'form', employee: @employee %>
+
+    <%= link_to 'Show', @employee %> |
+    <%= link_to 'Back', employees_path %>
+</div>

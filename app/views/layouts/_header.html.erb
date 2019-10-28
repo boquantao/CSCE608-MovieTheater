@@ -1,0 +1,35 @@
+<header class="navbar navbar-fixed-top navbar-inverse" style="background-color:  #00FFFF;">
+  <div class="container">
+    <nav>
+      <button class="navbar-toggle collapsed" id="menu-icon"></button>
+      <ul class="nav navbar-nav navbar-right collapse-nav-ul-custom" >
+        <li class="collapse-nav-li-custom"><%= link_to "Home", root_path %></li>
+        <li class="collapse-nav-li-custom"><%= link_to "All Employees", employees_path %></li>
+        <li class="collapse-nav-li-custom"><%= link_to "All Movies", movies_path %></li>
+        <li class="collapse-nav-li-custom"><%= link_to "All Actors", actors_path %></li>
+      </ul>
+    </nav>
+    <div>
+
+    </div>
+  </div>
+
+</header>
+<script>
+  $("#menu-icon").click(function () {
+
+      if($(".collapse-nav-ul-custom").css("display")=="none")
+        $(".collapse-nav-ul-custom").css("display", "block");
+      else
+        $(".collapse-nav-ul-custom").css("display", "none");
+  })
+  $(window).resize(function () {
+    if($(window).width() > 1200){
+      $(".collapse-nav-ul-custom").css("display","block");
+    }
+    else {
+      $(".collapse-nav-ul-custom").css("display", "none");
+    }
+  });
+
+</script>

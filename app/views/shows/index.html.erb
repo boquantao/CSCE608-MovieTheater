@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<style>
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid green;
+  padding: 10px;
+}
+</style>
+<div class = 'center'>
+  <h1><%= @cinema.name %>:</h1>
+  <h1>Shows</h1>
+  <table class="table table-hover", style="text-align:center; padding-left: 10px">
+    <thead>
+      <tr>
+        <th>Movie</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Price</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @shows.each do |show| %>
+        <% movie = show.movie%>
+        <tr>
+          <td><%= link_to movie.name, movie_url(id: movie.id, cinema_id: @cinema.id) %></td>
+          <td><%= show.start_time %></td>
+          <td><%= show.end_time %></td>
+          <td><%= show.price %></td>
+          <td><%= link_to 'Edit', edit_show_path(show) %></td>
+          <td><%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <%= link_to 'New Show', new_show_path(cinema_id: @cinema.id) %>
+  <%= link_to 'Back', cinemas_path %>
+</div>

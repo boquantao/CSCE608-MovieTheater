@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<style>
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid green;
+  padding: 10px;
+}
+</style>
+
+<div class = 'center'>
+  <h1>Movies</h1>
+  <table class="table table-hover", style="text-align:center; padding-left: 10px">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Released date</th>
+        <th>Leading roles</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.name %></td>
+          <td><%= movie.movie_type %></td>
+          <td><%= movie.released_date %></td>
+          <td>
+            <% movie.actors.each do |actor| %>
+              <%=link_to actor.name, actor %>
+            <% end %>
+          </td>
+          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+          <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <%= link_to 'New Movie', new_movie_path %>
+  <%= will_paginate(@movies) %>
+</div>

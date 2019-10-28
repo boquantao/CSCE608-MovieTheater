@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  released_date: 2019-10-27 14:54:49
+  leading_role: MyString
+
+two:
+  name: MyString
+  type: 
+  released_date: 2019-10-27 14:54:49
+  leading_role: MyString

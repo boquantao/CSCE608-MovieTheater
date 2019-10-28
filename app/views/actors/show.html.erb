@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<style>
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid green;
+  padding: 10px;
+}
+</style>
+<div class='center'>
+  <p>
+    <strong>Name:</strong>
+    <%= @actor.name %>
+  </p>
+  
+  <p>
+    <strong>Age:</strong>
+    <%= @actor.age %>
+  </p>
+  
+  <p>
+    <strong>Movies:</strong>
+    <% @actor.movies.each do |movie| %>
+      <%= link_to movie.name, movie %>,
+    <% end %>
+  </p>
+  
+  <%= link_to 'Edit', edit_actor_path(@actor) %> |
+  <%= link_to 'Back', actors_path %>
+</div>
