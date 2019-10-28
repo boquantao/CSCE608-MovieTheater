@@ -4,7 +4,7 @@ class ActorsController < ApplicationController
   # GET /actors
   # GET /actors.json
   def index
-    @actors = Actor.all
+    @actors = Actor.paginate(page: params[:page])
   end
 
   # GET /actors/1

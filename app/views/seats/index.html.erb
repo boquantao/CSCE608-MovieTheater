@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+
+<h1>Seats</h1>
+<div class="grid-container">
+  <% @seats.each do |seat| %>
+    <div class='grid-item'>
+      <% if !seat.booked %>
+        <%= link_to seat.seat_number, edit_seat_path(seat) %>
+      <% else %>
+        <%= seat.seat_number %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<br>
+
+<%= link_to 'Back', cinemas_path %>

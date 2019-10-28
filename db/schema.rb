@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191028022629) do
+ActiveRecord::Schema.define(version: 20191028230418) do
 
   create_table "actors", force: :cascade do |t|
     t.string   "name"
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 20191028022629) do
     t.string   "leading_role"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "seats", force: :cascade do |t|
+    t.integer  "show_id"
+    t.boolean  "booked"
+    t.integer  "seat_number"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["show_id"], name: "index_seats_on_show_id"
   end
 
   create_table "shows", force: :cascade do |t|
