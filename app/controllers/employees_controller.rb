@@ -5,7 +5,7 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     if !Cinema.exists?(params[:cinema_id])
-      @employees = Employee.all
+      @employees = Employee.paginate(page: params[:page])
     else
       @cinema = Cinema.find_by_id(params[:cinema_id])
       @employees = @cinema.employees

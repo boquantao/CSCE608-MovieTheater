@@ -18,7 +18,7 @@ movie_types = ["action", "romance", "thriller", "science", "documentary"]
 end
 
 
-100.times do |n|
+20.times do |n|
   name = Faker::Name.name
   age = Faker::Number.number(digits: 2)
   movies = Movie.all.sample(rand(1..2))
